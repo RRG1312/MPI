@@ -44,5 +44,21 @@ def main():
         print(f"Suma parcial del proceso {rank}: {suma_parcial}\n")
 
 
+    # se recogen todas las sumas parciales en el proceso maestro
+    sumas_parciales = comm.gather(suma_parcial, root=0) 
+    
+    # el proceso maestro calcula y muestra la suma total
+    if rank == 0:
+        suma_total = sum(sumas_parciales)
+        print("Resultados finales:")
+        print(f"Sumas parciales de cada proceso: {sumas_parciales}")
+        print(f"Suma total de la matriz: {suma_total}\n")
+        
+        # verificación de que los calculos son correctos
+        expected_sum = np.sum(matriz)
+        print(f"Verificación:")
+        print(f"Suma calculada de forma distribuida: {suma_total}")
+        print(f"Suma calculada directamente: {expected_sum}")
+        print(f"¿Resultados coinciden? {suma_total == expected_sum}\n")
 if __name__ == "__main__":
     main()
