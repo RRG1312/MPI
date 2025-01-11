@@ -1,5 +1,5 @@
 # Proyecto: Suma de una Matriz de 10x10 con Py-MPI
-#Link al repositorio: https://github.com/RRG1312/MPI.git
+Link al repositorio: https://github.com/RRG1312/MPI.git
 ## Descripción
 Este proyecto implementa un sistema distribuido utilizando **Py-MPI** para calcular la suma de los elementos de una matriz de 10x10. Se divide el cálculo entre cuatro procesos, lo que permite explorar conceptos de programación paralela y comunicación entre procesos.
 
